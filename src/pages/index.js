@@ -13,7 +13,7 @@ const Home = () => {
   }
 
   const items = []
-  for (var i = 1; i<3; i++) {
+  for (var i = 1; i<20; i++) {
     items.push(<p>Hello {user.name ? user.name : "climber"}!</p>)
   }
   return (
