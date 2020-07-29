@@ -20,6 +20,8 @@ const Home = () => {
     <Layout>
       { !isAuthenticated() && <Button variant="primary" onClick={doLogin}>Login</Button>}
       { isAuthenticated() && items }
+      <br/>
+      {items}
     </Layout>
   )
 }
