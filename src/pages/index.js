@@ -10,7 +10,7 @@ const Home = () => {
   return (
     <Layout>
       { !isAuthenticated() && <p>Ciao climber!</p>}
-      { isAuthenticated && <App/>}
+      { isAuthenticated() && <App/>}
       <Router>
         <T4CAssessment path="/app/t4cassessment" />
       </Router>
