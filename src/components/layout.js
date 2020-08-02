@@ -7,11 +7,11 @@ import Footer from './footer'
 export default function Layout({children}) {
     return (
         <>
-        <Container fluid><Navigation/></Container>
-        <Container>
-            <Row className="d-flex justify-content-center flex-column">{children}</Row>
-            <Row className="d-flex justify-content-center"><Footer/></Row>
-        </Container>
+            <Container fluid><Navigation/></Container>
+            <Container>
+                <Row className="d-flex justify-content-center flex-column">{children}</Row>
+                <Row className="d-flex justify-content-center"><Footer/></Row>
+            </Container>
         </>
     )
 }

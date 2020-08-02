@@ -1,27 +1,19 @@
 // ./src/pages/index.js
 import React from "react"
 import Layout from "../components/layout"
-import {Button} from 'react-bootstrap'
-import {getProfile, login, isAuthenticated } from "../utils/auth"
-
+import App from "../components/app"
+import T4CAssessment from "../components/t4cassessment"
+import { isAuthenticated } from "../utils/auth"
+import { Router} from '@reach/router'
 const Home = () => {
-  const user = getProfile()
-
-  const doLogin = (e) => {
-    login()
-    e.preventDefault()
-  }
-
-  const items = []
-  for (var i = 1; i<20; i++) {
-    items.push(<p>Hello {user.name ? user.name : "climber"}!</p>)
-  }
+  
   return (
     <Layout>
-      { !isAuthenticated() && <Button variant="primary" onClick={doLogin}>Login</Button>}
-      { isAuthenticated() && items }
-      <br/>
-      {items}
+      { !isAuthenticated() && <p>Ciao climber!</p>}
+      { isAuthenticated && <App/>}
+      <Router>
+        <T4CAssessment path="/app/t4cassessment" />
+      </Router>
     </Layout>
   )
 }
