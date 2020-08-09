@@ -1,20 +1,24 @@
 // ./src/pages/index.js
 import React from "react"
-import Layout from "../components/layout"
-import App from "../components/app"
-import T4CAssessment from "../components/t4cassessment"
-import { isAuthenticated } from "../utils/auth"
-import { Router} from '@reach/router'
-const Home = () => {
+import { Router } from '@reach/router';
+import SiteNavigation from "../components/sitenavigation"
+import App from "./app"
+
+const LazyComponent = ({ Component, ...props }) => (
+  <React.Suspense fallback={'<p>Loading...</p>'}>
+    <Component {...props} />
+  </React.Suspense>
+)
+
+const IndexPage = () => {
   
   return (
-    <Layout>
-      { !isAuthenticated() && <p>Ciao climber!</p>}
-      { isAuthenticated() && <App/>}
-      <Router>
-        <T4CAssessment path="/app/t4cassessment" />
-      </Router>
-    </Layout>
+    <>
+    <SiteNavigation/>
+    <Router>
+      <LazyComponent Component={App} path="/app" />
+    </Router>
+    </>
   )
 }
-export default Home
+export default IndexPage

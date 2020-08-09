@@ -1,7 +1,8 @@
 import React from "react"
-import {Navbar, Nav, NavDropdown, Button} from 'react-bootstrap'
+import { Link } from '@reach/router';
+import {Navbar, Nav} from 'react-bootstrap'
 
-const Navigation = () => {
+const SiteNavigation = () => {
 
     return (
         <Navbar variant="light" bg="light" fixed="top" expand="lg">
@@ -13,17 +14,18 @@ const Navigation = () => {
                     height="30"
                     className="d-inline-block align-top"
                 />{' '}
-                Climb Coach
+                Climb Coach Website
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">              
                 <Nav className="mr-auto"></Nav>
                 <Nav>
-                    <Nav.Item><Nav.Link href="/">Logout</Nav.Link></Nav.Item>
+                    <Nav.Item><Link to="/app">App</Link></Nav.Item>
+                    <Nav.Item><Link to="/app">Blog</Link></Nav.Item>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
     )
 }
 
-export default Navigation
+export default SiteNavigation
